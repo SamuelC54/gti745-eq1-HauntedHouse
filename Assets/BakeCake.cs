@@ -10,7 +10,14 @@ public class BakeCake : MonoBehaviour
 
     public void Bake()
     {
-        GameObject tray = ovenSocket.GetOldestInteractableSelected().transform.gameObject;
-        Debug.Log(tray.name);
+        IXRSelectInteractable tray = ovenSocket.GetOldestInteractableSelected();
+        ovenSocket.interactionManager.CancelInteractableSelection(tray);
+        tray.transform.gameObject.SetActive(false);
+
+        ovenSocket.gameObject.SetActive(false);
+        bakedCake.SetActive(true);
+        ovenSocket.gameObject.SetActive(true);
+
+
     }
 }
