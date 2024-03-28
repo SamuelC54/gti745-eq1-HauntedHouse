@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class OvenDoorControl : MonoBehaviour
 {
@@ -18,4 +20,11 @@ public class OvenDoorControl : MonoBehaviour
             animator.SetBool("isOpen", isOpen);
         }
     }
+
+    public void ChangeState()
+    {
+        isOpen = !isOpen;
+        animator.SetBool("isOpen", isOpen);
+    }
+
 }
