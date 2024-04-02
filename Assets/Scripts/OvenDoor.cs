@@ -16,7 +16,7 @@ public class OvenDoorControl : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O)) // Change 'O' to your preferred key
+        if (Input.GetKeyDown(KeyCode.O))
         {
             isOpen = !isOpen;
             animator.SetBool("isOpen", isOpen);
