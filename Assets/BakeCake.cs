@@ -6,18 +6,33 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class BakeCake : MonoBehaviour
 {
     public XRSocketTagInteractor ovenSocket;
-    public GameObject bakedCake;
+    public GameObject cakeTray;
 
     public void Bake()
     {
         IXRSelectInteractable tray = ovenSocket.GetOldestInteractableSelected();
         ovenSocket.interactionManager.CancelInteractableSelection(tray);
-        tray.transform.gameObject.SetActive(false);
 
-        ovenSocket.gameObject.SetActive(false);
-        bakedCake.SetActive(true);
-        ovenSocket.gameObject.SetActive(true);
+        for (int i = 0; i < tray.transform.childCount; i++)
+        {
+            tray.transform.GetChild(i).gameObject.SetActive(false);
+        }
 
+        tray.transform.parent.gameObject.SetActive(false);
 
+        StartCoroutine(SpawnCake());
+    }
+
+    IEnumerator SpawnCake()
+    {
+        GameObject cake = cakeTray.transform.GetChild(0).gameObject;
+        
+        yield return new WaitForSeconds(2);
+
+        cakeTray.SetActive(true);
+
+        yield return new WaitForSeconds(2);
+
+        cake.SetActive(true);
     }
 }
