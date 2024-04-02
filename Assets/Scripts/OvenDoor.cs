@@ -5,7 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class OvenDoorControl : MonoBehaviour
 {
-    public GameObject ovenTray;
+    //public GameObject ovenTray;
     public bool isOpen = false;
     Animator animator;
 
@@ -35,7 +35,7 @@ public class OvenDoorControl : MonoBehaviour
 
         yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
 
-        ovenTray.GetComponent<TrayMove>().ChangeState();
+        //ovenTray.GetComponent<TrayMove>().ChangeState();
         
     }
 
