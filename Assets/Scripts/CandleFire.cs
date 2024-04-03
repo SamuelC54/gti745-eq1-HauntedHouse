@@ -6,18 +6,20 @@ using UnityEngine;
 public class candleLight : MonoBehaviour
 {
     public GameObject isLight;
+    public bool on = false;
+
     void Start()
     {
-        isLight.SetActive(true);
+        
     }
 
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            isLight.SetActive(!isLight.activeSelf);
-        }
+    }
 
+    public void ChangeState()
+    {
+        isLight.SetActive(true);
     }
 }

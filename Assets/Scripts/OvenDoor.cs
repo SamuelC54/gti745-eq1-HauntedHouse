@@ -5,13 +5,15 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class OvenDoorControl : MonoBehaviour
 {
-    //public GameObject ovenTray;
+    public GameObject ovenTray;
     public bool isOpen = false;
-    Animator animator;
+    Animator doorAnimator;
+    Animator trayAnimator;
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        doorAnimator = GetComponent<Animator>();
+        trayAnimator = ovenTray.GetComponent<Animator>();
     }
 
     void Update()
@@ -19,24 +21,28 @@ public class OvenDoorControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O))
         {
             isOpen = !isOpen;
-            animator.SetBool("isOpen", isOpen);
+            doorAnimator.SetBool("isOpen", isOpen);
         }
     }
 
     public void ChangeState()
     {
-        StartCoroutine(OpenOven());
-    }
-
-    IEnumerator OpenOven()
-    {
         isOpen = !isOpen;
-        animator.SetBool("isOpen", isOpen);
+        doorAnimator.SetBool("isOpen", isOpen);
+        trayAnimator.SetBool("isOpen", isOpen);
 
-        yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
-
-        //ovenTray.GetComponent<TrayMove>().ChangeState();
-        
+        //StartCoroutine(OpenOven());
     }
+
+    //IEnumerator OpenOven()
+    //{
+    //    isOpen = !isOpen;
+    //    animator.SetBool("isOpen", isOpen);
+
+    //    yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
+
+    //    ovenTray.GetComponent<TrayMove>().ChangeState();
+
+    //}
 
 }
