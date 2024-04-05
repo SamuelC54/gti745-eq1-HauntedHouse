@@ -20,6 +20,7 @@ public class candleLight : MonoBehaviour
 
     public void ChangeState()
     {
-        isLight.SetActive(true);
+        on = !on;
+        isLight.SetActive(on);
     }
 }
