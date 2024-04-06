@@ -30,19 +30,7 @@ public class OvenDoorControl : MonoBehaviour
         isOpen = !isOpen;
         doorAnimator.SetBool("isOpen", isOpen);
         trayAnimator.SetBool("isOpen", isOpen);
-
-        //StartCoroutine(OpenOven());
     }
 
-    //IEnumerator OpenOven()
-    //{
-    //    isOpen = !isOpen;
-    //    animator.SetBool("isOpen", isOpen);
-
-    //    yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
-
-    //    ovenTray.GetComponent<TrayMove>().ChangeState();
-
-    //}
 
 }
