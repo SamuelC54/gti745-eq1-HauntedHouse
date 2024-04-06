@@ -3,36 +3,81 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class BakeCake : MonoBehaviour
+public class Oven : MonoBehaviour
 {
     public XRSocketTagInteractor ovenSocket;
     public GameObject cakeTray;
+    public GameObject cake;
+    public GameObject charredIngredient;
 
-    public void Bake()
+    public List<string> acceptedIngridients;
+
+    void Bake()
     {
-        IXRSelectInteractable tray = ovenSocket.GetOldestInteractableSelected();
-        ovenSocket.interactionManager.CancelInteractableSelection(tray);
+        IXRSelectInteractable bakingTray = ovenSocket.GetOldestInteractableSelected();
+        bool recipeCorrect = true;
 
-        for (int i = 0; i < tray.transform.childCount; i++)
+        for (int i = 0; i < bakingTray.transform.childCount - 1; i++)
         {
-            tray.transform.GetChild(i).gameObject.SetActive(false);
+            XRSocketTagInteractor ingSocket = bakingTray.transform.GetChild(i).GetComponent<XRSocketTagInteractor>();
+            IXRSelectInteractable ingredient = ingSocket.GetOldestInteractableSelected();
+
+            if (!acceptedIngridients.Contains(ingredient.transform.name))
+            {
+                recipeCorrect = false;
+                break;
+            }
         }
 
-        tray.transform.parent.gameObject.SetActive(false);
+        if (recipeCorrect)
+        {
+            StartCoroutine(BakeCake(bakingTray));
+        }
+        else
+        {
+            StartCoroutine(BakingFailed(bakingTray));
+        }
 
-        StartCoroutine(SpawnCake());
+
     }
 
-    IEnumerator SpawnCake()
+    IEnumerator BakingFailed(IXRSelectInteractable bakingTray)
     {
-        GameObject cake = cakeTray.transform.GetChild(0).gameObject;
-        
-        yield return new WaitForSeconds(2);
 
-        cakeTray.SetActive(true);
+        for (int i = 0; i < bakingTray.transform.childCount - 1; i++)
+        {
+            XRSocketTagInteractor ingSocket = bakingTray.transform.GetChild(i).GetComponent<XRSocketTagInteractor>();
+            IXRSelectInteractable ingredient = ingSocket.GetOldestInteractableSelected();
 
-        yield return new WaitForSeconds(2);
+            ingSocket.interactionManager.SelectExit(ingSocket, ingredient);
+            Destroy(ingredient.transform.gameObject);
 
-        cake.SetActive(true);
+            Instantiate(charredIngredient, ingSocket.transform.position, ingSocket.transform.rotation);
+
+            yield return new WaitForSeconds(1);
+        }
+
+    }
+
+    IEnumerator BakeCake(IXRSelectInteractable bakingTray)
+    {
+        for (int i = 0; i < bakingTray.transform.childCount - 1; i++)
+        {
+            XRSocketTagInteractor ingSocket = bakingTray.transform.GetChild(i).GetComponent<XRSocketTagInteractor>();
+            IXRSelectInteractable ingredient = ingSocket.GetOldestInteractableSelected();
+
+            ingSocket.interactionManager.SelectExit(ingSocket, ingredient);
+            Destroy(ingredient.transform.gameObject);
+        }
+
+        yield return new WaitForSeconds(1);
+
+        Destroy(bakingTray.transform.gameObject);
+
+        yield return new WaitForSeconds(1);
+        Transform tray = Instantiate(cakeTray, ovenSocket.transform.position, ovenSocket.transform.rotation).transform.GetChild(0);
+
+        yield return new WaitForSeconds(1);
+        Instantiate(cake, tray.position, tray.rotation);
     }
 }

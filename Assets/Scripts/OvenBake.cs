@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class DebugScript : MonoBehaviour
+public class OvenBake : MonoBehaviour
 {
     public XRSocketTagInteractor ovenSocket;
     public GameObject cakeTray;
     public GameObject cake;
     public GameObject charredIngredient;
-
     public List<string> acceptedIngridients;
 
-    public bool trigger = false;
+    public bool baking = false;
 
-    void Bake()
+    public void Bake()
     {
+        baking = !baking;
+
         IXRSelectInteractable bakingTray = ovenSocket.GetOldestInteractableSelected();
         bool recipeCorrect = true;
 
@@ -39,8 +40,6 @@ public class DebugScript : MonoBehaviour
         {
             StartCoroutine(BakingFailed(bakingTray));
         }
-
-
     }
 
     IEnumerator BakingFailed(IXRSelectInteractable bakingTray)
@@ -53,12 +52,13 @@ public class DebugScript : MonoBehaviour
 
             ingSocket.interactionManager.SelectExit(ingSocket, ingredient);
             Destroy(ingredient.transform.gameObject);
-            
+
             Instantiate(charredIngredient, ingSocket.transform.position, ingSocket.transform.rotation);
 
             yield return new WaitForSeconds(1);
         }
 
+        baking = !baking;
     }
 
     IEnumerator BakeCake(IXRSelectInteractable bakingTray)
@@ -81,6 +81,8 @@ public class DebugScript : MonoBehaviour
 
         yield return new WaitForSeconds(1);
         Instantiate(cake, tray.position, tray.rotation);
+
+        baking = !baking;
     }
 
 }
