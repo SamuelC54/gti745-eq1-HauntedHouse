@@ -5,11 +5,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class OvenBake : MonoBehaviour
 {
+    public BakingPuzzle puzzle;
     public XRSocketTagInteractor ovenSocket;
-    public GameObject cakeTray;
-    public GameObject cake;
-    public GameObject charredIngredient;
-    public List<string> acceptedIngridients;
 
     public bool baking = false;
 
@@ -25,7 +22,7 @@ public class OvenBake : MonoBehaviour
             XRSocketTagInteractor ingSocket = bakingTray.transform.GetChild(i).GetComponent<XRSocketTagInteractor>();
             IXRSelectInteractable ingredient = ingSocket.GetOldestInteractableSelected();
 
-            if (!acceptedIngridients.Contains(ingredient.transform.name))
+            if (!puzzle.getIngridientNames().Contains(ingredient.transform.name))
             {
                 recipeCorrect = false;
                 break;
@@ -53,7 +50,7 @@ public class OvenBake : MonoBehaviour
             ingSocket.interactionManager.SelectExit(ingSocket, ingredient);
             Destroy(ingredient.transform.gameObject);
 
-            Instantiate(charredIngredient, ingSocket.transform.position, ingSocket.transform.rotation);
+            Instantiate(puzzle.charredIngredient, ingSocket.transform.position, ingSocket.transform.rotation);
 
             yield return new WaitForSeconds(1);
         }
@@ -77,10 +74,10 @@ public class OvenBake : MonoBehaviour
         Destroy(bakingTray.transform.gameObject);
 
         yield return new WaitForSeconds(1);
-        Transform tray = Instantiate(cakeTray, ovenSocket.transform.position, ovenSocket.transform.rotation).transform.GetChild(0);
+        Transform tray = Instantiate(puzzle.cakeTray, ovenSocket.transform.position, ovenSocket.transform.rotation).transform.GetChild(0);
 
         yield return new WaitForSeconds(1);
-        Instantiate(cake, tray.position, tray.rotation);
+        Instantiate(puzzle.cake, tray.position, tray.rotation);
 
         baking = !baking;
     }
