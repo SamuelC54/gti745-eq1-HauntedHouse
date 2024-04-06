@@ -48,7 +48,7 @@
   - [ ] **Puzzle 2 (Cook the cake)**
     - [ ] Different ingredients are scattered in the kitchen (6-10 diff kinds)
     - [ ] There is at least 2 instances of each ingredient
-    - [ ] When cooking in the oven, check if the ingredients are of good type
+    - [x] When cooking in the oven, check if the ingredients are of good type
       - If all good, replace the ingredient tray with the BakedCake tray
       - If not replace ingredients with charred lumps (need to find prefab in store)
     - [ ] Detect cake placement on the stand before transitioning to next puzzle
