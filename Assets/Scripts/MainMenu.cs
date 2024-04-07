@@ -9,13 +9,8 @@ public class MainMenu : MonoBehaviour
     public void LoadGame()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        SceneManager.LoadScene("House");
+        SceneManager.LoadScene("2 House");
 
-    }
-
-    public void Option()
-    {
-        SceneManager.LoadScene("House");
     }
 
     public void EndGame()

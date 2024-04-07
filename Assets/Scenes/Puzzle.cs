@@ -6,9 +6,14 @@ using static GameSteps;
 public abstract class Puzzle : MonoBehaviour
 {
     public GameSteps story;
+    public bool isCompleted;
 
     public virtual void StepCompleted() {
-        story.advanceStory();
+        if (!isCompleted)
+        {
+            isCompleted = true;
+            story.advanceStory();
+        }
     }
 
 }

@@ -17,6 +17,9 @@ public class GameSteps : MonoBehaviour
 
     public void PlayStep(int index)
     {
+        if (index >= steps.Count)
+            return;
+
         Step step = steps[index];
 
         if(!step.hasStarted)
@@ -26,7 +29,6 @@ public class GameSteps : MonoBehaviour
             director.Stop();
             director.time = step.time;
             director.Play();
-
         }
     }
 
