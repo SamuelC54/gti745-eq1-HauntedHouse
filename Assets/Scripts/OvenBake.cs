@@ -77,7 +77,8 @@ public class OvenBake : MonoBehaviour
         Transform tray = Instantiate(puzzle.cakeTray, ovenSocket.transform.position, ovenSocket.transform.rotation).transform.GetChild(0);
 
         yield return new WaitForSeconds(1);
-        Instantiate(puzzle.cake, tray.position, tray.rotation);
+        GameObject cake = Instantiate(puzzle.cake, tray.position, tray.rotation);
+        cake.name = puzzle.cake.name;
 
         baking = !baking;
     }

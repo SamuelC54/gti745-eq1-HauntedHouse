@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static GameSteps;
 
 public class BakingPuzzle : Puzzle
 {
@@ -24,6 +23,6 @@ public class BakingPuzzle : Puzzle
 
     public void validateCake()
     {
-
+        base.StepCompleted();
     }
 }
