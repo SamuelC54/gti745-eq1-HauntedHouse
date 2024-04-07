@@ -24,17 +24,17 @@
 
 - [ ] Global objective system
   - [ ] **Puzzle 1 (Find whats happening)**
-    - [ ] Track that all notes were picked up before activating 2nd puzzle
-    - [ ] Create 5 notes that point to the objectives and story
-      - [ ] Note about the family disappearance (1) 
+    - [x] Track that all notes were picked up before activating 2nd puzzle
+    - [x] Create 5 notes that point to the objectives and story
+      - [x] Note about the family disappearance (1) 
         - --> commode a l'entree
-      - [ ] Note pointing to the birthday on the day of the disappearance and the last preparation steps (2)
+      - [x] Note pointing to the birthday on the day of the disappearance and the last preparation steps (2)
         - --> master bedroom
-      - [ ] Scary note of ghost kid saying how he couldn't celebrate his Bday (3)
+      - [x] Scary note of ghost kid saying how he couldn't celebrate his Bday (3)
         - --> kid bedroom
-      - [ ] Hint at candle number according to height chart in kids room (4)
+      - [x] Hint at candle number according to height chart in kids room (4)
         - --> toilet
-      - [ ] Note about the kids favorite cake recipe and directions to cook (5)
+      - [x] Note about the kids favorite cake recipe and directions to cook (5)
         - --> Kitchen
         - Find the right 3 ingredients
         - Put them on the tray
@@ -44,15 +44,15 @@
         - Take it out
         - Place on stand on the table
         - Place candles and light them
-      - [ ] Play sound on completion
-  - [ ] **Puzzle 2 (Cook the cake)**
+      - [x] Play sound on completion
+  - [x] **Puzzle 2 (Cook the cake)**
     - [ ] Different ingredients are scattered in the kitchen (6-10 diff kinds)
     - [ ] There is at least 2 instances of each ingredient
     - [x] When cooking in the oven, check if the ingredients are of good type
       - If all good, replace the ingredient tray with the BakedCake tray
       - If not replace ingredients with charred lumps (need to find prefab in store)
-    - [ ] Detect cake placement on the stand before transitioning to next puzzle
-    - [ ] Play sound on completion
+    - [x] Detect cake placement on the stand before transitioning to next puzzle
+    - [x] Play sound on completion
   - [ ] **Puzzle 3 (Candles for age)**
     - [ ] Detect candle placement on cake and their number
     - [ ] Detect when those candles are lit up
