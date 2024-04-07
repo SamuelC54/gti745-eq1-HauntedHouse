@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLight: {fileID: 1534635409678024830}
+  on: 0
 --- !u!54 &426670317566421473
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -410,8 +411,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2872644651275703685, guid: e4738207e829d924a8be902a855f7a24, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7327794762135693712}
   - component: {fileID: 7507762324883175250}
   - component: {fileID: 6435274567082438518}
-  - component: {fileID: 2872644651275703685}
   m_Layer: 0
   m_Name: Candle_fire
   m_TagString: Untagged
@@ -107,17 +106,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4450250574210662397, guid: 748ea6ddbd1b4fb4baebc5c685873bf8, type: 3}
---- !u!114 &2872644651275703685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6255064434615560082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a433fe3c234f67b4cb7b0339220bcecc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isLight: {fileID: 0}
-  candle: {fileID: 0}

@@ -10,7 +10,7 @@ public class CakeDisplay : MonoBehaviour
 
     void Start()
     {
-        displaySocket = GetComponent<XRSocketTagInteractor>();  
+        displaySocket = transform.GetComponentInChildren<XRSocketTagInteractor>();  
     }
 
     public void ValiddateCake()

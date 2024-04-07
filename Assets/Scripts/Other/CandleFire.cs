@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
-public class candleLight : MonoBehaviour
+public class CandleFire : MonoBehaviour
 {
     public GameObject isLight;
     public bool on = false;

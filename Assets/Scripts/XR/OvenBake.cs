@@ -6,6 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class OvenBake : MonoBehaviour
 {
     public BakingPuzzle puzzle;
+    public CandlesPuzzle nextPuzzle;
     public XRSocketTagInteractor ovenSocket;
 
     public bool baking = false;
@@ -79,6 +80,7 @@ public class OvenBake : MonoBehaviour
         yield return new WaitForSeconds(1);
         GameObject cake = Instantiate(puzzle.cake, tray.position, tray.rotation);
         cake.name = puzzle.cake.name;
+        cake.GetComponent<BirthdayCake>().puzzle = nextPuzzle;
 
         baking = !baking;
     }
