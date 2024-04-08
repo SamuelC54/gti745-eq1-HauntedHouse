@@ -95,7 +95,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Hit_Piano_2
   - m_Version: 1
-    m_Start: 17.933333333333312
+    m_Start: 17.933333333333323
     m_ClipIn: 0
     m_Asset: {fileID: 3973827909233947725}
     m_Duration: 5
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 23.983333333333334
+  m_Time: 26
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 094339f36dcce9846902d31d97888605, type: 2}
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 22.933333333333323
+  m_Time: 24.05
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 295957d1800c66f48aab69d0ac04cc07, type: 2}
