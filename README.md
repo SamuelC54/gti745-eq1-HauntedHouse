@@ -4,26 +4,26 @@
 
 ### Environment
 
-- [ ] Asset decoration for each room
+- [x] Asset decoration for each room
   - Should be done inside the Room prefabs ta facilitate Scaling
   - Should account for Floor and Ceiling in each prefab
   - Rooms:
-    - [ ] Toilet
-    - [ ] Kitchen
-    - [ ] Bedroom
-    - [ ] MasterBedroom
-    - [ ] Hall/Salon
+    - [x] Toilet
+    - [x] Kitchen
+    - [x] Bedroom
+    - [x] MasterBedroom
+    - [x] Hall/Salon
 - [ ] Lighting for the level
   - Chamge to night skybox, and add needed light sources
   - Preferably dark but not too much
   - Add light sources to objects like lamps
-- [ ] Adapt scaling to model size (player vs environment)
+- [x] Adapt scaling to model size (player vs environment)
 - [ ] Add creepy ambient music
 
 ### Objectives
 
-- [ ] Global objective system
-  - [ ] **Puzzle 1 (Find whats happening)**
+- [x] Global objective system
+  - [x] **Puzzle 1 (Find whats happening)**
     - [x] Track that all notes were picked up before activating 2nd puzzle
     - [x] Create 5 notes that point to the objectives and story
       - [x] Note about the family disappearance (1) 
@@ -53,16 +53,16 @@
       - If not replace ingredients with charred lumps (need to find prefab in store)
     - [x] Detect cake placement on the stand before transitioning to next puzzle
     - [x] Play sound on completion
-  - [ ] **Puzzle 3 (Candles for age)**
-    - [ ] Detect candle placement on cake and their number
-    - [ ] Detect when those candles are lit up
-    - [ ] Play sound on completion
-    - [ ] Spawn ghost, eats cake (despawn), spawns key for exit door
-    - [ ] End game (YOU ESCAPED) when key touches the door
+  - [x] **Puzzle 3 (Candles for age)**
+    - [x] Detect candle placement on cake and their number
+    - [x] Detect when those candles are lit up
+    - [x] Play sound on completion
+    - [x] Spawn ghost, eats cake (despawn), spawns key for exit door
+    - [x] End game (YOU ESCAPED) when key touches the door
   
 ### Mechanics
 
-- [ ] Toggle between Direct/Ray interactor with a B/A button press (right hand only)
+- [x] Toggle between Direct/Ray interactor with a B/A button press (right hand only)
 - [ ] Ghost
   - [ ] Enable only from 2nd Puzzle onwards
   - [ ] Spawns each 30 secs and tries to collide with you for 5 secs (need to run away, his speed is lower)
@@ -72,11 +72,7 @@
 
 ### UI
 
-- [ ] Startup in main menu with 3 options (Start, Controls, Quit)
-- [ ] Similar menu in game with 4 options (Resume, Restart, Controls, Quit)
-- [ ] When starting game, pause and show controls dialog before continuing. (Options)
+- [x] Startup in main menu with 3 options (Start, Controls, Quit)
+- [x] Similar menu in game with 4 options (Resume, Restart, Controls, Quit)
+- [ ] Comlete the controlls option in Menu
 
-
-### Other
-
-- [ ] When starting a game, trigger VR position reset
