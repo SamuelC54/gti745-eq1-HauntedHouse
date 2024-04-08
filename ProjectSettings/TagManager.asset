@@ -9,6 +9,7 @@ TagManager:
   - Candle
   - Fluid
   - Cake
+  - Key
   layers:
   - Default
   - TransparentFX
