@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharredIngredient
       objectReference: {fileID: 0}
+    - target: {fileID: 1455914188938112, guid: dfca154787e1ae143bb61db3e936f56c, type: 3}
+      propertyPath: m_TagString
+      value: Food
+      objectReference: {fileID: 0}
     - target: {fileID: 4004588335563672, guid: dfca154787e1ae143bb61db3e936f56c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5

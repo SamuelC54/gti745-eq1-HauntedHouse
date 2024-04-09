@@ -6,9 +6,9 @@ public class EscapeDoor : MonoBehaviour
 {
     public EscapePhase phase;
 
-    private void OnCollisionEnter(Collision collision)
+    public void Unlock(GameObject key)
     {
-            phase.TryEcape(collision.gameObject);
+        phase.TryEcape(key);
     }
 
 }

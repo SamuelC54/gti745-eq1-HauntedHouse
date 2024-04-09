@@ -9,6 +9,9 @@ public class OvenBake : MonoBehaviour
     public CandlesPuzzle nextPuzzle;
     public XRSocketTagInteractor ovenSocket;
 
+    public AudioSource bakeStart;
+    public AudioSource bakeEnd;
+
     public bool baking = false;
 
     public void Bake()
@@ -29,6 +32,8 @@ public class OvenBake : MonoBehaviour
                 break;
             }
         }
+
+        bakeStart.Play();
 
         if (recipeCorrect)
         {
@@ -53,10 +58,11 @@ public class OvenBake : MonoBehaviour
 
             Instantiate(puzzle.charredIngredient, ingSocket.transform.position, ingSocket.transform.rotation);
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(5);
         }
 
         baking = !baking;
+        bakeEnd.Play();
     }
 
     IEnumerator BakeCake(IXRSelectInteractable bakingTray)
@@ -82,7 +88,9 @@ public class OvenBake : MonoBehaviour
         cake.name = puzzle.cake.name;
         cake.GetComponent<BirthdayCake>().puzzle = nextPuzzle;
 
+        yield return new WaitForSeconds(2);
         baking = !baking;
+        bakeEnd.Play();
     }
 
 }
