@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class GhostScript : MonoBehaviour
+public class GhostCinematicControll : MonoBehaviour
 {
     private Animator Anim;
     private CharacterController Ctrl;
@@ -11,12 +10,10 @@ public class GhostScript : MonoBehaviour
 
     // Cache hash values
     private static readonly int IdleState = Animator.StringToHash("Base Layer.idle");
-    private static readonly int MoveState = Animator.StringToHash("Base Layer.move");
     private static readonly int SurprisedState = Animator.StringToHash("Base Layer.surprised");
     private static readonly int AttackState = Animator.StringToHash("Base Layer.attack_shift");
     private static readonly int DissolveState = Animator.StringToHash("Base Layer.dissolve");
-    private static readonly int AttackTag = Animator.StringToHash("Attack");
-    
+
     // dissolve
     [SerializeField] private SkinnedMeshRenderer[] MeshR;
     private float Dissolve_value = 1;
@@ -29,7 +26,7 @@ public class GhostScript : MonoBehaviour
 
     void Update()
     {
-        if(isDissolved && Dissolve_value > 0)
+        if (isDissolved && Dissolve_value > 0)
         {
             PlayerDissolve();
         }
@@ -43,8 +40,8 @@ public class GhostScript : MonoBehaviour
     }
 
     public void TriggerAnimation(GhostAnimations anim)
-    { 
-        switch(anim)
+    {
+        switch (anim)
         {
             case GhostAnimations.SURPRISE:
                 Anim.CrossFade(SurprisedState, 0.1f, 0, 0);
@@ -66,15 +63,16 @@ public class GhostScript : MonoBehaviour
     private void PlayerDissolve()
     {
         Dissolve_value -= Time.deltaTime;
+
+        if (Dissolve_value <= 0)
+        {
+            Debug.Log("Ghost Acended");
+        }
+
         for (int i = 0; i < MeshR.Length; i++)
         {
             MeshR[i].material.SetFloat("_Dissolve", Dissolve_value);
         }
-        if (Dissolve_value <= 0)
-        {
-            Debug.Log("Ghost Acended");
-
-        }
+        
     }
-
 }

@@ -11,7 +11,7 @@ public class EndCinematic : MonoBehaviour
     public GameObject key;
 
     GameObject cake;
-    GhostScript ghostControl;
+    GhostCinematicControll ghostControl;
 
     public bool trigger;
 
@@ -21,7 +21,7 @@ public class EndCinematic : MonoBehaviour
         cake = cakeDisplay.GetComponentInChildren<XRSocketTagInteractor>()
             .GetOldestInteractableSelected().transform.gameObject;
 
-        ghostControl = ghost.GetComponent<GhostScript>();
+        ghostControl = ghost.GetComponent<GhostCinematicControll>();
     }
 
     // Update is called once per frame
@@ -42,17 +42,17 @@ public class EndCinematic : MonoBehaviour
         ghost.SetActive(true);
         yield return new WaitForSeconds(2);
 
-        ghostControl.TriggerAnimation(GhostScript.GhostAnimations.SURPRISE);
+        ghostControl.TriggerAnimation(GhostCinematicControll.GhostAnimations.SURPRISE);
         yield return new WaitForSeconds(2);
 
-        ghostControl.TriggerAnimation(GhostScript.GhostAnimations.ACTION);
+        ghostControl.TriggerAnimation(GhostCinematicControll.GhostAnimations.ACTION);
         cake.SetActive(false);
         yield return new WaitForSeconds(1);
 
-        ghostControl.TriggerAnimation(GhostScript.GhostAnimations.ACTION);
+        ghostControl.TriggerAnimation(GhostCinematicControll.GhostAnimations.ACTION);
         key.SetActive(true);
         yield return new WaitForSeconds(2);
 
-        ghostControl.TriggerAnimation(GhostScript.GhostAnimations.ASCEND);
+        ghostControl.TriggerAnimation(GhostCinematicControll.GhostAnimations.ASCEND);
     }
 }
